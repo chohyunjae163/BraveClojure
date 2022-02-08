@@ -35,5 +35,31 @@
 
 (println(map unify-diet-data human-consumption critter-consumption))
 
+(println((comp inc *) 2 3))
 
+(def character
+  {:name "Smooches McCutes"
+   :attributes {:intelligence 10
+                :strength 4
+                :dexterity 5}})
+(def c-int (comp :intelligence :attributes))
+(def c-str (comp :strength :attributes))
+(def c-dex (comp :dexterity :attributes))
+
+(println(c-int character))
+(println(c-str character))
+(println(c-dex character))
+
+(defn sleepy-identity
+  "Returns the given value after 1 second"
+  [x]
+  (Thread/sleep 1000)
+  x)
+
+(println(sleepy-identity "Mr.Jay Cho"))
+(println(sleepy-identity "Mr.Jay Cho"))
+
+(def memo-sleepy-identity (memoize sleepy-identity))
+(println(memo-sleepy-identity "Mr.Jay Cho"))
+(println(memo-sleepy-identity "Mr.Jay Cho"))
 (println "done")
