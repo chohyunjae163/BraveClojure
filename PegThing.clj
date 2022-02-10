@@ -48,11 +48,6 @@
    [pos]
    (inc (count (take-while #(> pos %) tri))))
 
-(println(row-num 12))
-(println(inc (count (take-while #(> 5 %) tri))))
-(println(take-while #(> 5 %) tri))
-
-(println(take-while #(> 5 %) [ 1 2 6 10]))
 
 (defn connect
   "두 위치 간 서로 연결 맺기"
@@ -64,4 +59,13 @@
             [[pos destination] [destination pos]])
     board))
 
-(connect {} 15 1 2 4)
+(println(connect {} 15 1 2 4))
+(println(assoc-in {} [1 :connections 4] 2))
+
+(defn connect-right
+  [board max-pos pos]
+  (let [neighbor (inc pos)
+        destination (inc neighbor)]
+      (if-not (or (triangular? neighbor) (triangular? pos))
+        (connect board max-pos pos neighbor destination)
+        board)))
