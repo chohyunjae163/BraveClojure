@@ -9,35 +9,50 @@
 ;;if all checks out, return N
 ;;else add 2.
 
-(defn add2 [n] (inc (inc n)))
 
-
-(defn str-reverse [s]
+(defn my-reverse 
+  [s]
   (if (= (count s) 1)
     (first s)
-    (str (str-reverse (nthrest s 1)) (first s))))
+    (str (my-reverse (nthrest s 1)) (first s))))
 
-(def my-name-len (str-reverse "jaycho"))
+(defn str-reverse 
+  [s]  
+  (apply str (reverse s)))
 
-(println my-name-len)
-"jay"
-"ay"
-"y"
-"y"
-"ya"
-"yaj"
+(defn add2 
+  [n] 
+  (inc (inc n)))
 
+(def mod2 #(mod % 2))
 
-(defn isPalindromicNumber [n]
+(defn palindromicDecimal? 
+  [n]
   (= (str n) (str-reverse (str n))))
 
-(defn smallestPalindromicNumber []
+(defn palindromicBinary? 
+  [n]
+  (= (str n) (str-reverse (str n))))
+
+(defn palindromicOctal? 
+  [n]
+  (= (str n) (str-reverse (str n))))
+
+(defn decimalToBinary
+  [n]
+  (if (= n 0)
+    0
+    (mod n 2)))
+
+
+
+(println(mod2 7))
+
+(defn smallestPalindromicNumber 
+  []
   (loop [number 1]
-    (if (isPalindromicNumber number)
+    (if (and (palindromicDecimal? number)
+             (palindromicBinary? number)
+             (palindromicOctal? number))
       number
       (recur (add2 number)))))
-
-
-(def is-my-name-palin? (isPalindromicNumber "42524513"))
-
-(println is-my-name-palin?)
