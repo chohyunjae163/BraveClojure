@@ -8,14 +8,6 @@
 ;;(def isOctalPalindromic)
 ;;if all checks out, return N
 ;;else add 2.
-
-
-(defn my-reverse 
-  [s]
-  (if (= (count s) 1)
-    (first s)
-    (str (my-reverse (nthrest s 1)) (first s))))
-
 (defn str-reverse 
   [s]  
   (apply str (reverse s)))
@@ -64,3 +56,5 @@
 
 
 (println smallestPalindromicNumber)
+
+;;the answer should be 585
