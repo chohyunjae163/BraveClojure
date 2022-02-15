@@ -1,13 +1,6 @@
-;; find the smallest palindromic number (binary, octal, decimal)
-;;get N
-;;check decimal palindrome
-;;(def isDecimalPalindromic)
-;;check binary palindrome
-;;(def isBinaryPalindromic)
-;;check octal palindrome
-;;(def isOctalPalindromic)
-;;if all checks out, return N
-;;else add 2.
+;; The Quiz 1
+;; find the smallest palindromic number (binary, octal, decimal) that is greater than 10.
+
 (defn str-reverse 
   [s]  
   (apply str (reverse s)))
