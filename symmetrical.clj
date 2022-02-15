@@ -18,18 +18,20 @@
 
 (def mod2 #(mod % 2))
 (def mod8 #(mod % 8))
+(def quot2 #(quot % 2))
+(def quot8 #(quot % 8))
 
 (defn decimalToBinary
   [n]
   (if (< n 2)
     (str n)
-    (str (decimalToBinary (quot n 2)) (mod2 n))))
+    (str (decimalToBinary (quot2 n)) (mod2 n))))
 
 (defn decimalToOctal
   [n]
   (if (< n 8)
     (str n)
-    (str (decimalToOctal (quot n 8)) (mod8 n))))
+    (str (decimalToOctal (quot8 n)) (mod8 n))))
 
 (defn palindromicDecimal? 
   [n]
