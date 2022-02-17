@@ -5,3 +5,14 @@
     [dec-by]
     #(- % dec-by))
 
+;;Write a function, mapset, that works like map except the return value is a set
+(defn my-map 
+  [f coll] 
+  (reduce (fn [new-coll val]
+            (conj new-coll (f val)))
+          '()
+          coll))
+
+(def mapset #(set (my-map %1 %2)))
+
+(println (mapset inc [32 40 55]))
