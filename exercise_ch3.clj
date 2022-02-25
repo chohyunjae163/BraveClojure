@@ -16,3 +16,17 @@
 (def mapset #(set (my-map %1 %2)))
 
 (println (mapset inc [32 40 55]))
+
+;;write a filter using reduce
+(defn my-filter
+  [pred coll]
+  (reduce (fn [new-coll val]
+            (if (= true (pred val))
+              (conj new-coll val)
+              new-coll))
+            []
+            coll))
+
+(def filterEven #(my-filter even? %))
+
+(println (filterEven [71,32,35,4,65,10,20,21,24,34,94]))
